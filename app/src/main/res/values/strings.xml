@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name_release">PDF release</string>
+    <string name="app_name_debug">PDF debug</string>
+    <string name="app_name">PDF test</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="top_view_behavior">ym.pdf.behaviors.TopViewBehavior</string>
+    <string name="pdf_view_behavior">ym.pdf.behaviors.PDFViewBehavior</string>
+    <string name="pdf_view_behavior2">ym.pdf.behaviors.PDFViewBehavior222</string>
+    <string name="pdf_view_behavior3">ym.pdf.behaviors.PDFViewBehavior333</string>
+</resources>
