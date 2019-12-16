@@ -13,6 +13,7 @@ public class Main2Activity extends AppCompatActivity implements PDFAdapter.ISeeL
 
     private ZoomRecyclerView recyclerView;
     private TextView mButton;
+    PDFAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,17 @@ public class Main2Activity extends AppCompatActivity implements PDFAdapter.ISeeL
         pdfFileNameList.add("sample2.pdf");
 
         int viewWidth = recyclerView.getWidth() - recyclerView.getPaddingLeft() - recyclerView.getPaddingRight();
-        PDFAdapter adapter = new PDFAdapter(this, pdfFileNameList, viewWidth);
+        adapter = new PDFAdapter(this, pdfFileNameList, viewWidth);
         adapter.setSeeLastPDFListener(this);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (adapter != null) {
+            adapter.clearResource();
+        }
     }
 
     @Override

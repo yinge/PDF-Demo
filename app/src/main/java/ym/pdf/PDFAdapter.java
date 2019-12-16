@@ -112,6 +112,13 @@ public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
         return result.size();
     }
 
+    public void clearResource() {
+        if (result != null) {
+            result.clear();
+            result = null;
+        }
+    }
+
     class PDFViewHolder extends RecyclerView.ViewHolder {
         ImageView ivPDF;
         int position;
