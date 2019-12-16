@@ -37,6 +37,7 @@ public class Main2Activity extends AppCompatActivity implements PDFAdapter.ISeeL
         List<String> pdfFileNameList = new ArrayList<>();
         pdfFileNameList.add("sample1.pdf");
         pdfFileNameList.add("sample2.pdf");
+        pdfFileNameList.add("sample2.pdf");
 
         int viewWidth = recyclerView.getWidth() - recyclerView.getPaddingLeft() - recyclerView.getPaddingRight();
         PDFAdapter adapter = new PDFAdapter(this, pdfFileNameList, viewWidth);
