@@ -119,6 +119,12 @@ public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
         }
     }
 
+    private void onRenderCompleted() {
+        if (mSeeLastPDFListener != null) {
+            mSeeLastPDFListener.renderFirstSuccessful();
+        }
+    }
+
     class PDFViewHolder extends RecyclerView.ViewHolder {
         ImageView ivPDF;
         int position;
@@ -141,6 +147,8 @@ public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
 
     public interface ISeeLastPDFListener {
         void onSeenLastPDF();
+
+        void renderFirstSuccessful();
     }
 
     public void setSeeLastPDFListener(ISeeLastPDFListener listener) {
@@ -157,6 +165,9 @@ public class PDFAdapter extends RecyclerView.Adapter<PDFAdapter.PDFViewHolder> {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            if (msg.what == 0) {
+                pdfAdapter.get().onRenderCompleted();
+            }
             pdfAdapter.get().notifyDataSetChanged();
             pdfAdapter.get().startRender(msg.what + 1);
         }

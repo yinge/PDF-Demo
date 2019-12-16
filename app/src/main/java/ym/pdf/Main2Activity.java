@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,8 +57,14 @@ public class Main2Activity extends AppCompatActivity implements PDFAdapter.ISeeL
 
     @Override
     public void onSeenLastPDF() {
-        if(!mButton.isEnabled()) {
+        if (!mButton.isEnabled()) {
             mButton.setEnabled(true);
         }
     }
+
+    @Override
+    public void renderFirstSuccessful() {
+        Toast.makeText(this, "渲染完成", Toast.LENGTH_SHORT).show();
+    }
+
 }
